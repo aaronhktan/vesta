@@ -36,6 +36,7 @@ This repository brings together all the plugins I've written for my indoor envir
     - In the Omega + Arduino setup, the Arduino dock reads the voltage (built-in 10-bit ADC), and "prints" these over UART for the Omega to consume. The Omega uses a blocking read on the `tty` port where it is connected; once it receives data, it transmits the reading over MQTT to the Raspberry Pi.
     - On the ESP8266, the 10-bit ADC is limited to a max voltage of 1V, but the NodeMCU board I have has a built-in voltage divider to safely connect the soil moisture sensor. Once it reads a voltage, it transmits the reading over MQTT to the Raspberry Pi.
     - The plugin running on the Raspberry Pi monitors for messages over MQTT. When it receives a reading, averages are calculated and data is stored.
+- Outside of Homebridge, when the Raspberry Pi boots, systemd launches the `homebridge-display` script. This script subscribes to (some) of the MQTT topics, and displays the data sent on those topics.
 
 # Picture
 <img src="/docs/fritzing/vesta.png?raw=true">

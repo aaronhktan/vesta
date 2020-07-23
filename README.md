@@ -1,4 +1,4 @@
-# <img src="/docs/icon/icon.png?raw=true" height="48"> Vesta - Homebridge Plugin collection
+# <img src="/docs/icon/icon.png?raw=true" height="48"> Vesta - Homebridge Plugin Collection
 
 *Vesta is the same as the Earth; under both of them is a perpetual fire; the earth and the hearth are symbols of the home.*
 —Ovid, Fasti VI
@@ -38,6 +38,6 @@ This repository brings together all the plugins I've written for my indoor envir
     - The plugin running on the Raspberry Pi monitors for messages over MQTT. When it receives a reading, averages are calculated and data is stored.
 - Outside of Homebridge, when the Raspberry Pi boots, systemd launches the `homebridge-display` script. This script subscribes to (some) of the MQTT topics, and displays the data sent on those topics.
 
-# Picture
+## Picture
 <img src="/docs/fritzing/vesta.png?raw=true">
 

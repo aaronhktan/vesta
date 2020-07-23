@@ -1,0 +1,2 @@
+docs/dummy/* -linguist-documentation
+docs/dummy/dummy.c linguist-language=C

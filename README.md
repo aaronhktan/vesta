@@ -1,4 +1,4 @@
-# <img src="/docs/icon/icon.png?raw=true" height="40"> Vesta - Homebridge Plugin collection
+# <img src="/docs/icon/icon.png?raw=true" height="48"> Vesta - Homebridge Plugin collection
 
 *Vesta is the same as the Earth; under both of them is a perpetual fire; the earth and the hearth are symbols of the home.*
 —Ovid, Fasti VI

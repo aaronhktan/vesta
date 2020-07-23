@@ -1,0 +1,21 @@
+[submodule "homebridge-pms7003"]
+	path = homebridge-pms7003
+	url = https://github.com/aaronhktan/homebridge-pms7003.git
+[submodule "homebridge-display"]
+	path = homebridge-display
+	url = https://github.com/aaronhktan/homebridge-display.git
+[submodule "homebridge-dht22"]
+	path = homebridge-dht22
+	url = https://github.com/aaronhktan/homebridge-dht22.git
+[submodule "homebridge-bmp280"]
+	path = homebridge-bmp280
+	url = https://github.com/aaronhktan/homebridge-bmp280.git
+[submodule "homebridge-sgp30"]
+	path = homebridge-sgp30
+	url = https://github.com/aaronhktan/homebridge-sgp30.git
+[submodule "homebridge-veml6030"]
+	path = homebridge-veml6030
+	url = https://github.com/aaronhktan/homebridge-veml6030.git
+[submodule "homebridge-soil-moisture"]
+	path = homebridge-soil-moisture
+	url = https://github.com/aaronhktan/homebridge-soil-moisture.git

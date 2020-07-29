@@ -19,3 +19,6 @@
 [submodule "homebridge-soil-moisture"]
 	path = homebridge-soil-moisture
 	url = https://github.com/aaronhktan/homebridge-soil-moisture.git
+[submodule "homebridge-bme280"]
+	path = homebridge-bme280
+	url = https://github.com/aaronhktan/homebridge-bme280.git

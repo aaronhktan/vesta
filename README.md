@@ -6,6 +6,7 @@
 This repository brings together all the plugins I've written for my indoor environment smart home automation project.
 
 ## Components
+- `homebridge-bme280`: Temperature, humidity, barometric air pressure.
 - `homebridge-bmp280`: Temperature and barometric air pressure.
 - `homebridge-dht22`: Temperature and humidity.
 - `homebridge-pms7003`: Particulate matter, dust, PM2.5/PM10.
@@ -21,7 +22,7 @@ This repository brings together all the plugins I've written for my indoor envir
 - I've added a Fritzing diagram under `docs/` to show how everything is wired up.
 
 ### Protocols
-- **I2C, SMBus**: SGP30, VEML6030. These both rely on `i2c-dev` and `ioctl` from Linux.
+- **I2C, SMBus**: SGP30, VEML6030, BME280. These both rely on `i2c-dev` and `ioctl` from Linux.
 - **SPI**: BMP280. This relies on `spidev` and `ioctl` from Linux.
 - **UART**: PMS7003. This relies on `termios` from Linux. Also uses `epoll` for asynchronous I/O!
 - **GPIO toggling**: DHT22. This uses the `BCM2835` library.

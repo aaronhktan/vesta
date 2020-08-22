@@ -9,6 +9,7 @@ This repository brings together all the plugins I've written for my indoor envir
 - `homebridge-bme280`: Temperature, humidity, barometric air pressure.
 - `homebridge-bmp280`: Temperature and barometric air pressure.
 - `homebridge-dht22`: Temperature and humidity.
+- `homebridge-micropython-bme280`: Temperature, humidity, barometric air pressure from WeMos D1 Mini boards scattered around the house.
 - `homebridge-pms7003`: Particulate matter, dust, PM2.5/PM10.
 - `homebridge-sgp30`: Equivalent CO2, volatile organic compounds.
 - `homebride-soil-sensor`: Analog capacitive soil moisture sensor readings.
@@ -18,11 +19,12 @@ This repository brings together all the plugins I've written for my indoor envir
 ## Technical details
 ### Hardware
 - Raspberry Pi! Most of these plugins should work on both the Raspberry Pi 3 and Raspberry Pi Zero. Have not tested on others.
+- The MicroPython port of the BME280 driver runs on a WeMos D1 Mini (ESP8266), and outputs to an SSD1306 I2C display.
 - The soil sensor code runs on either (1) Onion Omega + Arduino Dock, or (2) an ESP8266 running MicroPython.
 - I've added a Fritzing diagram under `docs/` to show how everything is wired up.
 
 ### Protocols
-- **I2C, SMBus**: SGP30, VEML6030, BME280. These both rely on `i2c-dev` and `ioctl` from Linux.
+- **I2C, SMBus**: SGP30, VEML6030, BME280. These both rely on `i2c-dev` and `ioctl` from Linux. The BME280 using MicroPython uses the `machine` module I2C implementation.
 - **SPI**: BMP280. This relies on `spidev` and `ioctl` from Linux.
 - **UART**: PMS7003. This relies on `termios` from Linux. Also uses `epoll` for asynchronous I/O!
 - **GPIO toggling**: DHT22. This uses the `BCM2835` library.
@@ -37,8 +39,8 @@ This repository brings together all the plugins I've written for my indoor envir
     - In the Omega + Arduino setup, the Arduino dock reads the voltage (built-in 10-bit ADC), and "prints" these over UART for the Omega to consume. The Omega uses a blocking read on the `tty` port where it is connected; once it receives data, it transmits the reading over MQTT to the Raspberry Pi.
     - On the ESP8266, the 10-bit ADC is limited to a max voltage of 1V, but the NodeMCU board I have has a built-in voltage divider to safely connect the soil moisture sensor. Once it reads a voltage, it transmits the reading over MQTT to the Raspberry Pi.
     - The plugin running on the Raspberry Pi monitors for messages over MQTT. When it receives a reading, averages are calculated and data is stored.
+- Also independently, the BME280 sensors connected to the WeMos D1 Minis are woken up from sleep and polled every 30 seconds by the D1 Mini over I2C, and the read data is sent over MQTT to the Raspberry Pi.
 - Outside of Homebridge, when the Raspberry Pi boots, systemd launches the `homebridge-display` script. This script subscribes to (some) of the MQTT topics, and displays the data sent on those topics.
 
 ## Picture
 <img src="/docs/fritzing/vesta.png?raw=true">
-

@@ -22,3 +22,6 @@
 [submodule "homebridge-bme280"]
 	path = homebridge-bme280
 	url = https://github.com/aaronhktan/homebridge-bme280.git
+[submodule "homebridge-micropython-bme280"]
+	path = homebridge-micropython-bme280
+	url = https://github.com/aaronhktan/homebridge-micropython-bme280.git
